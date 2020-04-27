@@ -32,6 +32,22 @@ public class App extends Application {
         new InitTrueTimeAsyncTask().execute();
     }
 
+
+    /**
+     * https://blog.csdn.net/DeMonliuhui/article/details/82226601
+    ### 阿里云提供了7个NTP服务器
+    ntp1.aliyun.com
+    ntp2.aliyun.com
+    ntp3.aliyun.com
+    ntp4.aliyun.com
+    ntp5.aliyun.com
+    ntp6.aliyun.com
+    ntp7.aliyun.com
+
+
+    ### 中国科学技术大学NTP服务器
+    time.ustc.edu.cn
+   */
     // a little part of me died, having to use this
     private class InitTrueTimeAsyncTask extends AsyncTask<Void, Void, Void> {
 
@@ -39,7 +55,8 @@ public class App extends Application {
             try {
                 TrueTime.build()
                         //.withSharedPreferences(SampleActivity.this)
-                        .withNtpHost("time.google.com")
+//                        .withNtpHost("time.google.com")
+                        .withNtpHost("ntp1.aliyun.com") //修改为阿里云NTP服务器
                         .withLoggingEnabled(false)
                         .withSharedPreferencesCache(App.this)
                         .withConnectionTimeout(3_1428)

@@ -52,7 +52,7 @@ public class Sample2Activity
         Date trueTime = TrueTimeRx.now();
         Date deviceTime = new Date();
 
-        Log.d("kg",
+        Log.i("trueTime",
               String.format(" [trueTime: %d] [devicetime: %d] [drift_sec: %f]",
                             trueTime.getTime(),
                             deviceTime.getTime(),
@@ -61,11 +61,11 @@ public class Sample2Activity
         timeGMT.setText(getString(R.string.tt_time_gmt,
                                   _formatDate(trueTime, "yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT"))));
         timePST.setText(getString(R.string.tt_time_pst,
-                                  _formatDate(trueTime, "yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT-07:00"))));
+                                  _formatDate(trueTime, "yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT+08:00"))));
         timeDeviceTime.setText(getString(R.string.tt_time_device,
                                          _formatDate(deviceTime,
                                                      "yyyy-MM-dd HH:mm:ss",
-                                                     TimeZone.getTimeZone("GMT-07:00"))));
+                                                     TimeZone.getTimeZone("GMT+08:00"))));
     }
 
     private String _formatDate(Date date, String pattern, TimeZone timeZone) {
